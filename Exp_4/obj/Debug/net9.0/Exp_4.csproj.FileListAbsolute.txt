@@ -1,0 +1,14 @@
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\bin\Debug\net9.0\Exp_4.exe
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\bin\Debug\net9.0\Exp_4.deps.json
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\bin\Debug\net9.0\Exp_4.runtimeconfig.json
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\bin\Debug\net9.0\Exp_4.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\bin\Debug\net9.0\Exp_4.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.AssemblyInfoInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.AssemblyInfo.cs
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.csproj.CoreCompileInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\refint\Exp_4.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\Exp_4.genruntimeconfig.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_4\obj\Debug\net9.0\ref\Exp_4.dll

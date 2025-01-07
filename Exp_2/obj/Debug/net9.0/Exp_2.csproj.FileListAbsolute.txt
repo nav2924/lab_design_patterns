@@ -1,0 +1,14 @@
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\bin\Debug\net9.0\Exp_2.exe
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\bin\Debug\net9.0\Exp_2.deps.json
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\bin\Debug\net9.0\Exp_2.runtimeconfig.json
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\bin\Debug\net9.0\Exp_2.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\bin\Debug\net9.0\Exp_2.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.AssemblyInfoInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.AssemblyInfo.cs
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.csproj.CoreCompileInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\refint\Exp_2.dll
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\Exp_2.genruntimeconfig.cache
+C:\Users\tiger\OneDrive\Documents\C#\Exp_2\obj\Debug\net9.0\ref\Exp_2.dll

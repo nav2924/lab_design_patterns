@@ -1,0 +1,14 @@
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\bin\Debug\net9.0\Experiment_1.exe
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\bin\Debug\net9.0\Experiment_1.deps.json
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\bin\Debug\net9.0\Experiment_1.runtimeconfig.json
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\bin\Debug\net9.0\Experiment_1.dll
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\bin\Debug\net9.0\Experiment_1.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.AssemblyInfoInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.AssemblyInfo.cs
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.csproj.CoreCompileInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.dll
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\refint\Experiment_1.dll
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\Experiment_1.genruntimeconfig.cache
+C:\Users\tiger\OneDrive\Documents\C#\Experiment_1\obj\Debug\net9.0\ref\Experiment_1.dll

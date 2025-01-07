@@ -1,0 +1,14 @@
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\bin\Debug\net9.0\Decorators.exe
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\bin\Debug\net9.0\Decorators.deps.json
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\bin\Debug\net9.0\Decorators.runtimeconfig.json
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\bin\Debug\net9.0\Decorators.dll
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\bin\Debug\net9.0\Decorators.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.AssemblyInfoInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.AssemblyInfo.cs
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.csproj.CoreCompileInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.dll
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\refint\Decorators.dll
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.pdb
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\Decorators.genruntimeconfig.cache
+C:\Users\tiger\OneDrive\Documents\C#\Decorators\obj\Debug\net9.0\ref\Decorators.dll
