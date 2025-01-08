@@ -1,0 +1,15 @@
+C:\Users\tiger\OneDrive\Documents\C#\LSP\bin\Debug\net9.0\LSP.exe
+C:\Users\tiger\OneDrive\Documents\C#\LSP\bin\Debug\net9.0\LSP.deps.json
+C:\Users\tiger\OneDrive\Documents\C#\LSP\bin\Debug\net9.0\LSP.runtimeconfig.json
+C:\Users\tiger\OneDrive\Documents\C#\LSP\bin\Debug\net9.0\LSP.dll
+C:\Users\tiger\OneDrive\Documents\C#\LSP\bin\Debug\net9.0\LSP.pdb
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.AssemblyInfoInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.AssemblyInfo.cs
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.csproj.CoreCompileInputs.cache
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.sourcelink.json
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.dll
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\refint\LSP.dll
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.pdb
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\LSP.genruntimeconfig.cache
+C:\Users\tiger\OneDrive\Documents\C#\LSP\obj\Debug\net9.0\ref\LSP.dll
