@@ -1,90 +1,99 @@
 ﻿using System;
-using System.Windows.Forms;
 
-namespace ELearningApp
+// Define an interface
+public interface IUser
 {
-    public partial class Form1 : Form
+    void Register(string username, string password);
+    void Login(string username, string password);
+}
+
+// Abstract base class for shared functionality
+public abstract class UserBase : IUser
+{
+    public string Username { get; set; }
+    public string Password { get; set; }
+
+    public abstract void Register(string username, string password); // Abstract method
+
+    public virtual void Login(string username, string password) // Virtual method
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+        Console.WriteLine($"{username} logged in.");
+    }
+}
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Set up the home page title
-            this.Text = "E-Learning Platform";
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.Size = new System.Drawing.Size(800, 600);
+// Derived class for regular users
+public class RegularUser : UserBase
+{
+    public override void Register(string username, string password) // Implement abstract method
+    {
+        Username = username;
+        Password = password;
+        Console.WriteLine($"User {username} registered successfully.");
+    }
 
-            // Create a welcome label
-            Label lblWelcome = new Label();
-            lblWelcome.Text = "Welcome to E-Learning Platform!";
-            lblWelcome.Font = new System.Drawing.Font("Arial", 18, System.Drawing.FontStyle.Bold);
-            lblWelcome.AutoSize = true;
-            lblWelcome.Location = new System.Drawing.Point(250, 50);
-            this.Controls.Add(lblWelcome);
+    public override void Login(string username, string password) // Override virtual method
+    {
+        base.Login(username, password); // Use base class logic
+        Console.WriteLine("Welcome to the platform!");
+    }
+}
 
-            // Create a description label
-            Label lblDescription = new Label();
-            lblDescription.Text = "Start Learning. Anytime, Anywhere!";
-            lblDescription.Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Italic);
-            lblDescription.AutoSize = true;
-            lblDescription.Location = new System.Drawing.Point(290, 100);
-            this.Controls.Add(lblDescription);
+// Sealed class for admins
+public sealed class AdminUser : UserBase
+{
+    public override void Register(string username, string password)
+    {
+        Username = username;
+        Password = password;
+        Console.WriteLine($"Admin {username} registered successfully.");
+    }
 
-            // Create a button for "View Courses"
-            Button btnCourses = new Button();
-            btnCourses.Text = "View Courses";
-            btnCourses.Font = new System.Drawing.Font("Arial", 12);
-            btnCourses.Size = new System.Drawing.Size(150, 40);
-            btnCourses.Location = new System.Drawing.Point(325, 200);
-            btnCourses.Click += BtnCourses_Click; // Event handler for button click
-            this.Controls.Add(btnCourses);
+    public override void Login(string username, string password)
+    {
+        Console.WriteLine($"Admin {username} has logged in with special privileges.");
+    }
+}
 
-            // Create a button for "Register"
-            Button btnRegister = new Button();
-            btnRegister.Text = "Register";
-            btnRegister.Font = new System.Drawing.Font("Arial", 12);
-            btnRegister.Size = new System.Drawing.Size(150, 40);
-            btnRegister.Location = new System.Drawing.Point(325, 270);
-            btnRegister.Click += BtnRegister_Click; // Event handler for button click
-            this.Controls.Add(btnRegister);
+// Interface for course management
+public interface ICourseManagement
+{
+    void AddCourse(string courseName);
+    void ListCourses();
+}
 
-            // Create a button for "Login"
-            Button btnLogin = new Button();
-            btnLogin.Text = "Login";
-            btnLogin.Font = new System.Drawing.Font("Arial", 12);
-            btnLogin.Size = new System.Drawing.Size(150, 40);
-            btnLogin.Location = new System.Drawing.Point(325, 340);
-            btnLogin.Click += BtnLogin_Click; // Event handler for button click
-            this.Controls.Add(btnLogin);
+// Class implementing course management
+public class CourseManagement : ICourseManagement
+{
+    public void AddCourse(string courseName)
+    {
+        Console.WriteLine($"Course '{courseName}' added successfully.");
+    }
 
-            // Create a picture box for logo (optional)
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.ImageLocation = "https://via.placeholder.com/150"; // Placeholder image
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Size = new System.Drawing.Size(150, 150);
-            pictureBox.Location = new System.Drawing.Point(325, 400);
-            this.Controls.Add(pictureBox);
-        }
+    public void ListCourses()
+    {
+        Console.WriteLine("Available courses:");
+        Console.WriteLine("1. C# for Beginners");
+        Console.WriteLine("2. Introduction to Machine Learning");
+    }
+}
 
-        // Event handler for "View Courses"
-        private void BtnCourses_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Redirecting to Courses Page...");
-        }
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create regular user and register
+        RegularUser regularUser = new RegularUser();
+        regularUser.Register("JohnDoe", "password123");
+        regularUser.Login("JohnDoe", "password123");
 
-        // Event handler for "Register"
-        private void BtnRegister_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Redirecting to Register Page...");
-        }
+        // Create admin user and register
+        AdminUser adminUser = new AdminUser();
+        adminUser.Register("AdminJane", "adminPass456");
+        adminUser.Login("AdminJane", "adminPass456");
 
-        // Event handler for "Login"
-        private void BtnLogin_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Redirecting to Login Page...");
-        }
+        // Manage courses
+        CourseManagement courseManagement = new CourseManagement();
+        courseManagement.AddCourse("C# for Beginners");
+        courseManagement.ListCourses();
     }
 }

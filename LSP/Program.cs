@@ -1,122 +1,120 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// Custom exception class for handling user-specific errors
+public class UserException : Exception
+{
+    public UserException(string message) : base(message) { }
+}
+
+// Define an interface
 public interface IUser
 {
     void Register(string username, string password);
     void Login(string username, string password);
-    void EnrollCourse(string courseName);
-    void CompleteCourse(string courseName);
 }
 
+// Abstract base class for shared functionality
 public abstract class UserBase : IUser
 {
     public string Username { get; set; }
     public string Password { get; set; }
     public List<string> EnrolledCourses { get; set; } = new List<string>();
 
-    public virtual void Register(string username, string password)
+    public abstract void Register(string username, string password); // Abstract method
+
+    public virtual void Login(string username, string password) // Virtual method
     {
-        Username = username;
-        Password = password;
-        Console.WriteLine($"{username} registered successfully.");
+        Console.WriteLine($"{username} logged in.");
     }
 
-    public virtual void Login(string username, string password)
+    public virtual void EnrollCourse(string courseName)
     {
-        if (Username == username && Password == password)
-        {
-            Console.WriteLine($"{username} logged in successfully.");
-        }
-        else
-        {
-            Console.WriteLine("Invalid credentials!");
-        }
+        EnrolledCourses.Add(courseName);
+        Console.WriteLine($"{Username} enrolled in {courseName}.");
     }
-
-    public abstract void EnrollCourse(string courseName);
 
     public virtual void CompleteCourse(string courseName)
     {
-        if (EnrolledCourses.Contains(courseName))
+        if (EnrolledCourses.Count == 0)
         {
-            Console.WriteLine($"Course '{courseName}' completed successfully.");
-            Certificate.GenerateCertificate(Username, courseName);
+            throw new UserException($"{Username} must be enrolled in at least one course to complete it.");
         }
-        else
-        {
-            throw new Exception("Course not found in enrolled list.");
-        }
+        Console.WriteLine($"{Username} completed the course: {courseName}");
+    }
+
+    public virtual void GenerateCertificate(string courseName)
+    {
+        Console.WriteLine($"Certificate generated for {Username} for completing {courseName}.");
     }
 }
 
+// Derived class for regular users
 public class RegularUser : UserBase
 {
-    private const int MaxCourses = 5;
-
-    public override void EnrollCourse(string courseName)
+    public override void Register(string username, string password) // Implement abstract method
     {
-        if (EnrolledCourses.Count >= MaxCourses)
-        {
-            throw new Exception("Maximum course limit reached for regular user.");
-        }
-        EnrolledCourses.Add(courseName);
-        Console.WriteLine($"Regular user '{Username}' enrolled in course '{courseName}'.");
+        Username = username;
+        Password = password;
+        Console.WriteLine($"User {username} registered successfully.");
     }
-}
 
-public class AdminUser : UserBase
-{
     public override void EnrollCourse(string courseName)
     {
-        EnrolledCourses.Add(courseName);
-        Console.WriteLine($"Admin user '{Username}' enrolled in course '{courseName}'.");
+        if (EnrolledCourses.Count >= 5)
+        {
+            throw new UserException("Regular users can enroll in a maximum of 5 courses.");
+        }
+        base.EnrollCourse(courseName); // Use base class logic
     }
 
     public override void CompleteCourse(string courseName)
     {
-        if (EnrolledCourses.Contains(courseName))
-        {
-            Console.WriteLine($"Admin user '{Username}' completed course '{courseName}', but no certificate is issued.");
-        }
-        else
-        {
-            throw new Exception("Course not found in enrolled list.");
-        }
+        base.CompleteCourse(courseName); // Use base class logic
+        GenerateCertificate(courseName); // Regular users receive a certificate after completing the course
     }
 }
 
+// Sealed class for admins
+public sealed class AdminUser : UserBase
+{
+    public override void Register(string username, string password)
+    {
+        Username = username;
+        Password = password;
+        Console.WriteLine($"Admin {username} registered successfully.");
+    }
+
+    public override void CompleteCourse(string courseName)
+    {
+        if (EnrolledCourses.Count == 0)
+        {
+            throw new UserException($"{Username} must be enrolled in at least one course to complete it.");
+        }
+        Console.WriteLine($"Admin {Username} completed the course: {courseName}.");
+    }
+}
+
+// Interface for course management
 public interface ICourseManagement
 {
     void AddCourse(string courseName);
     void ListCourses();
 }
 
+// Class implementing course management
 public class CourseManagement : ICourseManagement
 {
-    public List<string> AvailableCourses { get; set; } = new List<string>();
-
     public void AddCourse(string courseName)
     {
-        AvailableCourses.Add(courseName);
         Console.WriteLine($"Course '{courseName}' added successfully.");
     }
 
     public void ListCourses()
     {
         Console.WriteLine("Available courses:");
-        foreach (var course in AvailableCourses)
-        {
-            Console.WriteLine($"- {course}");
-        }
-    }
-}
-
-public static class Certificate
-{
-    public static void GenerateCertificate(string username, string courseName)
-    {
-        Console.WriteLine($"Certificate generated for user '{username}' for completing course '{courseName}'.");
+        Console.WriteLine("1. C# for Beginners");
+        Console.WriteLine("2. Introduction to Machine Learning");
     }
 }
 
@@ -124,55 +122,54 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Create a course management system and add courses
-        CourseManagement courseManagement = new CourseManagement();
-        courseManagement.AddCourse("C# for Beginners");
-        courseManagement.AddCourse("Introduction to Machine Learning");
-
-        // Display available courses
-        courseManagement.ListCourses();
-
-        // Create regular user and admin user
-        IUser regularUser = new RegularUser();
-        IUser adminUser = new AdminUser();
-
-        // Register and login users
-        regularUser.Register("JohnDoe", "password123");
-        regularUser.Login("JohnDoe", "password123");
-
-        adminUser.Register("AdminJane", "adminPass456");
-        adminUser.Login("AdminJane", "adminPass456");
-
-        // Enroll courses and complete them
         try
         {
-            // Regular user actions
-            regularUser.EnrollCourse("C# for Beginners");
-            regularUser.CompleteCourse("C# for Beginners");
-
-            // Admin user actions
-            adminUser.EnrollCourse("C# for Beginners");
-            adminUser.CompleteCourse("C# for Beginners");
-
-            // Trigger an exception: regular user tries to complete a course not enrolled in
-            regularUser.CompleteCourse("Introduction to Machine Learning");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-
-        // Trigger another exception: regular user exceeds course limit
-        try
-        {
-            for (int i = 0; i < 6; i++)
+            // Creating a regular user and attempting to enroll in 6 courses
+            RegularUser regularUser = new RegularUser();
+            regularUser.Register("JohnDoe", "password123");
+            for (int i = 1; i <= 6; i++)  // Attempt to enroll in 6 courses
             {
-                regularUser.EnrollCourse($"Extra Course {i + 1}");
+                regularUser.EnrollCourse($"Course {i}");
             }
         }
-        catch (Exception ex)
+        catch (UserException ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Exception: {ex.Message}");
         }
+
+        try
+        {
+            // Creating a regular user and attempting to complete a course without enrolling
+            RegularUser regularUser = new RegularUser();
+            regularUser.Register("JohnDoe", "password123");
+            regularUser.CompleteCourse("Course 1");  // Attempt to complete without enrolling
+        }
+        catch (UserException ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+
+        try
+        {
+            // Creating an admin user and attempting to complete a course without enrolling
+            AdminUser adminUser = new AdminUser();
+            adminUser.Register("AdminJane", "adminPass456");
+            adminUser.CompleteCourse("Course 1");  // Attempt to complete without enrolling
+        }
+        catch (UserException ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+
+        // Manage courses
+        CourseManagement courseManagement = new CourseManagement();
+        courseManagement.AddCourse("C# for Beginners");
+        courseManagement.ListCourses();
+
+        // Regular user completing a course and generating a certificate
+        RegularUser userWithCertificate = new RegularUser();
+        userWithCertificate.Register("JohnDoe", "password123");
+        userWithCertificate.EnrollCourse("C# for Beginners");
+        userWithCertificate.CompleteCourse("C# for Beginners");
     }
 }
