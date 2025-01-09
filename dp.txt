@@ -1,0 +1,70 @@
+using System;
+
+
+class Person
+{
+public int Age { get; set; }
+
+public Person(int age)
+{
+if (age < 18)
+{
+throw new ArithmeticException("Age must be 18 or more to proceed.");
+}
+Age = age;
+}
+
+public virtual void DetermineCategory()
+{
+Console.WriteLine("Determining category in the base class...");
+}
+}
+
+class Professional : Person
+{
+public Professional(int age) : base(age) { }
+
+public override void DetermineCategory()
+{
+if (Age >= 18 && Age <= 25)
+{
+Console.WriteLine("You are eligible to join the profession as a fresher.");
+}
+else if (Age > 25 && Age <= 60)
+{
+Console.WriteLine("You are an experienced professional.");
+}
+else if (Age > 60)
+{
+Console.WriteLine("You are retired.");
+}
+}
+}
+
+class Program
+{
+static void Main(string[] args)
+{
+try
+{
+Console.Write("Enter your age: ");
+int age = int.Parse(Console.ReadLine());
+
+Professional person = new Professional(age);
+person.DetermineCategory();
+}
+catch (ArithmeticException ex)
+{
+Console.WriteLine($"Error: {ex.Message}");
+}
+catch (FormatException)
+{
+Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+catch (Exception ex)
+{
+Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+}
+}
+}
+
